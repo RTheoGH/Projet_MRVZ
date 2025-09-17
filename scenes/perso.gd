@@ -3,9 +3,14 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+var previous_mouse_pos:Vector2 = DisplayServer.window_get_size()/2
+@onready var cam_fps = $Camera3D
+var cam_speed = 0.5
 
 
 func _physics_process(delta: float) -> void:
+	var cam_diff = get_viewport().get_mouse_position() - previous_mouse_pos
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -16,7 +21,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -24,5 +29,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	cam_fps.global_rotation.x -= cam_diff.y * delta * cam_speed
+	cam_fps.global_rotation.x = deg_to_rad(clamp(rad_to_deg(cam_fps.global_rotation.x), -89.9, 89.9))
+	cam_fps.global_rotation.y -= cam_diff.x * delta * cam_speed
+	
+	if get_viewport().get_window().has_focus():
+		Input.warp_mouse(DisplayServer.window_get_size()/2)
+	
+	previous_mouse_pos = get_viewport().get_mouse_position()
 
 	move_and_slide()
