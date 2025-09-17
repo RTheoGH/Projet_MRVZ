@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Projet_MRVZ"
+run/main_scene="uid://cru6fthpu72uo"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://ressources/icon.svg"
 
 [rendering]
 

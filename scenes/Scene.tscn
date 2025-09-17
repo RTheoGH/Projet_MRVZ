@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cru6fthpu72uo"]
+
+[ext_resource type="PackedScene" uid="uid://hyxjxaek1eag" path="res://scenes/Perso.tscn" id="2_20oit"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dvpi0"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dvpi0"]
+
+[node name="Scene" type="Node3D"]
+
+[node name="Perso" parent="." instance=ExtResource("2_20oit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1964556, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_dvpi0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_dvpi0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.4614501, 0.7959809, 0.39176297, -0.19466797, -0.33997992, 0.92006415, 0.86554503, -0.5008274, -0.0019317907, 0.040063858, -2.5703084, -0.10313749)
