@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	
 	var cam_diff = get_viewport().get_mouse_position() - previous_mouse_pos
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -28,6 +29,8 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction := (cam_fps.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = -(direction.cross(Vector3.UP)).cross(Vector3.UP).normalized()
+	print(direction)
 	
 	if direction:
 		velocity.x = direction.x * SPEED
