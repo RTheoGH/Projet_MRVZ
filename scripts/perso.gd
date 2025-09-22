@@ -9,6 +9,11 @@ var cam_speed = 0.5
 
 
 func _physics_process(delta: float) -> void:
+	
+	if Global.isPaused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		return
+	
 	var cam_diff = get_viewport().get_mouse_position() - previous_mouse_pos
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	# Add the gravity.
@@ -32,10 +37,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	if(rad_to_deg(cam_fps.global_rotation.x - cam_diff.y * delta * cam_speed) < -80):
-		print("C'est moins")
 		cam_fps.global_rotation.x = deg_to_rad(-79.9)
 	elif(rad_to_deg(cam_fps.global_rotation.x - cam_diff.y * delta * cam_speed) > 80):
-		print(rad_to_deg(cam_fps.global_rotation.x))
 		cam_fps.global_rotation.x = deg_to_rad(80)
 	else:
 		cam_fps.global_rotation.x -= cam_diff.y * delta * cam_speed
