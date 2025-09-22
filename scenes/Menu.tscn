@@ -1,0 +1,102 @@
+[gd_scene load_steps=2 format=3 uid="uid://dek63gbyfg4ei"]
+
+[ext_resource type="Texture2D" uid="uid://l6w45g7s23c7" path="res://ressources/menu_plante.png" id="1_xdvgc"]
+
+[node name="Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.67058825, 0.9019608)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24700001
+anchor_top = 0.179
+anchor_right = 0.74200004
+anchor_bottom = 1.217
+offset_left = 0.45599365
+offset_top = 0.0079956055
+offset_right = 0.21594238
+offset_bottom = -0.17364502
+texture = ExtResource("1_xdvgc")
+
+[node name="jouer" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.40500003
+anchor_top = 0.34100002
+anchor_right = 0.518
+anchor_bottom = 0.45100003
+offset_left = 0.43997192
+offset_top = 0.031982422
+offset_right = 0.26397705
+offset_bottom = -0.24801636
+text = "Jouer"
+
+[node name="propos" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.342
+anchor_top = 0.70400006
+anchor_right = 0.455
+anchor_bottom = 0.813
+offset_left = 0.015991211
+offset_top = -0.19204712
+offset_right = -0.16003418
+offset_bottom = 0.17596436
+text = "A propos"
+
+[node name="options" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.544
+anchor_top = 0.45800003
+anchor_right = 0.657
+anchor_bottom = 0.568
+offset_left = 0.31195068
+offset_top = 0.2159729
+offset_right = 0.13598633
+offset_bottom = -0.06402588
+text = "Options"
+
+[node name="quitter" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.523
+anchor_top = 0.72200006
+anchor_right = 0.63600004
+anchor_bottom = 0.832
+offset_left = 0.5040283
+offset_top = 0.14395142
+offset_right = 0.3279419
+offset_bottom = -0.13598633
+text = "Quitter"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13800001
+anchor_top = 0.066
+anchor_right = 0.827
+anchor_bottom = 0.25500003
+offset_left = 0.023986816
+offset_top = 0.23199844
+offset_right = 0.29595947
+offset_bottom = -0.24002075
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]<INSERT GAME NAME>"
