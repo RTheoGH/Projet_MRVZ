@@ -11,13 +11,22 @@ config_version=5
 [application]
 
 config/name="Projet_MRVZ"
-run/main_scene="uid://cru6fthpu72uo"
+run/main_scene="uid://dek63gbyfg4ei"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://ressources/icon.svg"
 
 [autoload]
 
 Global="*res://scripts/Global.gd"
+
+[file_customization]
+
+folder_colors={
+"res://ressources/": "green",
+"res://scenes/": "pink",
+"res://scripts/": "red",
+"res://shaders/": "blue"
+}
 
 [input]
 
