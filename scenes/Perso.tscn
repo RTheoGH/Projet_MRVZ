@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://hyxjxaek1eag"]
 
-[ext_resource type="Script" uid="uid://ltmlnborsvw5" path="res://scripts/perso.gd" id="1_34im4"]
+[ext_resource type="Script" uid="uid://deysa375pgxig" path="res://scripts/perso.gd" id="1_34im4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e1nwe"]
 
@@ -12,6 +12,9 @@ script = ExtResource("1_34im4")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44753653, 0)
 current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -1.3113416e-07, -1, 0, 3, -4.371139e-08, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_e1nwe")
