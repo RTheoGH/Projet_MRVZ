@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dek63gbyfg4ei"]
+[gd_scene load_steps=6 format=3 uid="uid://dek63gbyfg4ei"]
 
+[ext_resource type="Script" uid="uid://clm87qo21c7lo" path="res://scripts/menu.gd" id="1_jmdev"]
+[ext_resource type="Texture2D" uid="uid://b6vk82jruug7b" path="res://ressources/background/bg2.png" id="1_o0tnf"]
 [ext_resource type="Texture2D" uid="uid://l6w45g7s23c7" path="res://ressources/menu_plante.png" id="1_xdvgc"]
 [ext_resource type="Texture2D" uid="uid://dd8id13ahln15" path="res://ressources/title_univH.png" id="2_upctu"]
+[ext_resource type="PackedScene" uid="uid://c1kassqq1adyl" path="res://scenes/Chargement.tscn" id="4_o0tnf"]
 
 [node name="Menu" type="Control"]
 process_mode = 3
@@ -11,8 +14,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jmdev")
+
+[node name="fond" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o0tnf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,10 +44,10 @@ anchor_left = 0.24700001
 anchor_top = 0.179
 anchor_right = 0.74200004
 anchor_bottom = 1.217
-offset_left = 0.45599365
-offset_top = 0.0079956055
-offset_right = 0.21594238
-offset_bottom = -0.17364502
+offset_left = -239.544
+offset_top = -0.9920044
+offset_right = -239.78406
+offset_bottom = -1.173645
 texture = ExtResource("1_xdvgc")
 
 [node name="jouer" type="Button" parent="."]
@@ -42,10 +57,10 @@ anchor_left = 0.40500003
 anchor_top = 0.34100002
 anchor_right = 0.518
 anchor_bottom = 0.45100003
-offset_left = 0.43997192
-offset_top = 0.031982422
-offset_right = 0.26397705
-offset_bottom = -0.24801636
+offset_left = -239.56003
+offset_top = -0.9680176
+offset_right = -239.73602
+offset_bottom = -1.2480164
 text = "Jouer"
 
 [node name="propos" type="Button" parent="."]
@@ -55,10 +70,10 @@ anchor_left = 0.342
 anchor_top = 0.70400006
 anchor_right = 0.455
 anchor_bottom = 0.813
-offset_left = 0.015991211
-offset_top = -0.19204712
-offset_right = -0.16003418
-offset_bottom = 0.17596436
+offset_left = -239.98401
+offset_top = -1.1920471
+offset_right = -240.16003
+offset_bottom = -0.82403564
 text = "A propos"
 
 [node name="options" type="Button" parent="."]
@@ -68,10 +83,10 @@ anchor_left = 0.544
 anchor_top = 0.45800003
 anchor_right = 0.657
 anchor_bottom = 0.568
-offset_left = 0.31195068
-offset_top = 0.2159729
-offset_right = 0.13598633
-offset_bottom = -0.06402588
+offset_left = -239.68805
+offset_top = -0.7840271
+offset_right = -239.86401
+offset_bottom = -1.0640259
 text = "Options"
 
 [node name="quitter" type="Button" parent="."]
@@ -81,21 +96,42 @@ anchor_left = 0.523
 anchor_top = 0.72200006
 anchor_right = 0.63600004
 anchor_bottom = 0.832
-offset_left = 0.5040283
-offset_top = 0.14395142
-offset_right = 0.3279419
-offset_bottom = -0.13598633
+offset_left = -239.49597
+offset_top = -0.8560486
+offset_right = -239.67206
+offset_bottom = -1.1359863
 text = "Quitter"
 
 [node name="titre" type="TextureRect" parent="."]
+z_index = 1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.23300001
-anchor_right = 0.767
-anchor_bottom = 0.238
-offset_left = -0.41601563
-offset_right = 0.4159546
-offset_bottom = -0.22399902
+anchor_left = 0.23600002
+anchor_right = 0.76400006
+anchor_bottom = 0.23500001
+offset_left = 265.128
+offset_top = 7.000001
+offset_right = 264.87195
+offset_bottom = 6.719986
 grow_horizontal = 2
+rotation = 0.2617994
 texture = ExtResource("2_upctu")
+
+[node name="ColorRect" type="ColorRect" parent="titre"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.40784314)
+
+[node name="Chargement" parent="." instance=ExtResource("4_o0tnf")]
+position = Vector2(1061.25, 568.25)
+scale = Vector2(0.42882562, 0.42882562)
+frame_progress = 0.8605602
+
+[connection signal="pressed" from="jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="quitter" to="." method="_on_quitter_pressed"]
