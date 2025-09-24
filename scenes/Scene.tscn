@@ -10,6 +10,8 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_dvpi0"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dvpi0"]
+
 [node name="Scene" type="Node3D"]
 script = ExtResource("1_w7ipn")
 
@@ -38,3 +40,8 @@ mesh = SubResource("CylinderMesh_dvpi0")
 
 [node name="Pause" parent="." instance=ExtResource("3_20oit")]
 visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("CylinderShape3D_dvpi0")
