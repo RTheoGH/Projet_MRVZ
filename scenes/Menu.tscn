@@ -36,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 0.67058825, 0.9019608)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="plante" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -50,56 +50,55 @@ offset_right = -239.78406
 offset_bottom = -1.173645
 texture = ExtResource("1_xdvgc")
 
-[node name="jouer" type="Button" parent="."]
+[node name="jouer" type="Button" parent="plante"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.40500003
-anchor_top = 0.34100002
-anchor_right = 0.518
-anchor_bottom = 0.45100003
-offset_left = -239.56003
-offset_top = -0.9680176
-offset_right = -239.73602
-offset_bottom = -1.2480164
+anchor_left = 0.358
+anchor_top = 0.17400001
+anchor_right = 0.537
+anchor_bottom = 0.284
+offset_left = -0.060012817
+offset_top = -0.0049819946
+offset_right = -0.08999634
+offset_bottom = -0.28497314
 text = "Jouer"
 
-[node name="propos" type="Button" parent="."]
+[node name="propos" type="Button" parent="plante"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.342
-anchor_top = 0.70400006
-anchor_right = 0.455
-anchor_bottom = 0.813
-offset_left = -239.98401
-offset_top = -1.1920471
-offset_right = -240.16003
-offset_bottom = -0.82403564
+anchor_left = 0.2
+anchor_top = 0.5
+anchor_right = 0.402
+anchor_bottom = 0.605
+offset_top = -3.2211914
+offset_right = -0.13999939
+offset_bottom = -0.16345215
 text = "A propos"
 
-[node name="options" type="Button" parent="."]
+[node name="options" type="Button" parent="plante"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.544
-anchor_top = 0.45800003
-anchor_right = 0.657
-anchor_bottom = 0.568
-offset_left = -239.68805
-offset_top = -0.7840271
-offset_right = -239.86401
-offset_bottom = -1.0640259
+anchor_left = 0.64000005
+anchor_top = 0.268
+anchor_right = 0.84000003
+anchor_bottom = 0.377
+offset_left = 0.19998169
+offset_top = -0.21456909
+offset_right = 0.19998169
+offset_bottom = 0.1778717
 text = "Options"
 
-[node name="quitter" type="Button" parent="."]
+[node name="quitter" type="Button" parent="plante"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.523
-anchor_top = 0.72200006
-anchor_right = 0.63600004
-anchor_bottom = 0.832
-offset_left = -239.49597
-offset_top = -0.8560486
-offset_right = -239.67206
-offset_bottom = -1.1359863
+anchor_left = 0.58100003
+anchor_top = 0.503
+anchor_right = 0.76100004
+anchor_bottom = 0.61200005
+offset_left = -0.17001343
+offset_top = -0.23852539
+offset_right = 0.22998047
+offset_bottom = 0.15390015
 text = "Quitter"
 
 [node name="titre" type="TextureRect" parent="."]
@@ -133,5 +132,31 @@ position = Vector2(1061.25, 568.25)
 scale = Vector2(0.42882562, 0.42882562)
 frame_progress = 0.8605602
 
-[connection signal="pressed" from="jouer" to="." method="_on_jouer_pressed"]
-[connection signal="pressed" from="quitter" to="." method="_on_quitter_pressed"]
+[node name="Timer" type="Timer" parent="."]
+
+[node name="chargement_block" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53400004
+anchor_top = 0.81200004
+anchor_right = 0.86500007
+anchor_bottom = 0.95800006
+offset_left = -0.16802979
+offset_top = -0.17602539
+offset_right = 1.5198975
+offset_bottom = 0.21594238
+color = Color(0.19607843, 0.19607843, 0.19607843, 0.4)
+
+[node name="texte" type="RichTextLabel" parent="chargement_block"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+
+[connection signal="pressed" from="plante/jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="plante/quitter" to="." method="_on_quitter_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
