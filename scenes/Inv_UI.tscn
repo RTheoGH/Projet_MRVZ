@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkm1i03s7ql1s"]
+
+[ext_resource type="Script" uid="uid://cys43wqmq4edy" path="res://scenes/inv_ui.gd" id="1_o4mch"]
+
+[node name="InvUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -308.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o4mch")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 326.0
+offset_top = 99.0
+offset_right = 13.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.102981634, 0.2747161, 0.21242028, 1)
+
+[node name="ItemSlot1" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -82.5
+offset_right = 153.0
+offset_bottom = 37.0
+grow_vertical = 2
+
+[node name="ItemSlot2" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 195.0
+offset_top = -79.5
+offset_right = 313.0
+offset_bottom = 29.0
+grow_vertical = 2
+
+[node name="ItemSlot3" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 368.0
+offset_top = -80.5
+offset_right = 496.0
+offset_bottom = 41.0
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23500001
+anchor_top = 0.093
+anchor_right = 0.721
+anchor_bottom = 0.21700001
+offset_left = 0.21498871
+offset_top = -6.899
+offset_right = 0.14898682
+offset_bottom = 0.053985596
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b] Inventory"
+horizontal_alignment = 1
