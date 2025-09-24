@@ -41,3 +41,7 @@ func _on_timer_timeout() -> void:
 		$chargement_block.hide()
 		$plante.show()
 		get_tree().change_scene_to_file("res://scenes/Scene.tscn")
+
+
+func _on_propos_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/propos.tscn")
