@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccneeglf3rtgq"]
+[gd_scene load_steps=8 format=3 uid="uid://ccneeglf3rtgq"]
 
+[ext_resource type="Script" uid="uid://bs1ch0ypr6sq7" path="res://scripts/pause.gd" id="1_qp6fb"]
 [ext_resource type="Texture2D" uid="uid://cgft3pmietdr2" path="res://ressources/continuer1.png" id="1_uc2tp"]
 [ext_resource type="Texture2D" uid="uid://dp318w3baxk8l" path="res://ressources/continuer2.png" id="2_qp6fb"]
 [ext_resource type="Texture2D" uid="uid://ps6osqaurddg" path="res://ressources/livre.png" id="3_7akkw"]
 [ext_resource type="Texture2D" uid="uid://df74qshy37m5" path="res://ressources/quitter1.png" id="4_w5f6b"]
 [ext_resource type="Texture2D" uid="uid://3hd8bjy6uixw" path="res://ressources/quitter2.png" id="5_87awh"]
+[ext_resource type="PackedScene" uid="uid://bjgtvtynklld5" path="res://scenes/Book.tscn" id="7_7akkw"]
 
 [node name="Pause" type="Control"]
 process_mode = 3
@@ -14,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qp6fb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -24,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.19607843, 0.19607843, 0.19607843, 0.27450982)
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="continuer" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.091000006
@@ -53,7 +56,7 @@ offset_bottom = 0.039978027
 mouse_filter = 2
 texture = ExtResource("3_7akkw")
 
-[node name="Button" type="Button" parent="."]
+[node name="progress" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.573
@@ -66,7 +69,7 @@ offset_right = 0.2559204
 offset_bottom = -0.27999878
 flat = true
 
-[node name="TextureButton2" type="TextureButton" parent="."]
+[node name="quitter" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.08800001
@@ -79,3 +82,10 @@ offset_right = -0.11999512
 offset_bottom = 0.039978027
 texture_normal = ExtResource("4_w5f6b")
 texture_hover = ExtResource("5_87awh")
+
+[node name="Book" parent="." instance=ExtResource("7_7akkw")]
+layout_mode = 1
+
+[connection signal="pressed" from="continuer" to="." method="_on_continuer_pressed"]
+[connection signal="pressed" from="progress" to="." method="_on_progress_pressed"]
+[connection signal="pressed" from="quitter" to="." method="_on_quitter_pressed"]

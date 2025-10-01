@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjgtvtynklld5"]
+
+[ext_resource type="Script" uid="uid://dqex76kdn8q6e" path="res://scripts/book.gd" id="1_e1apg"]
+[ext_resource type="Texture2D" uid="uid://b6fdl88ll2tey" path="res://ressources/livre_ouvert.png" id="1_hv8lg"]
+[ext_resource type="Texture2D" uid="uid://c5dg2phck5mvd" path="res://ressources/sprite_1.png" id="2_e1apg"]
+[ext_resource type="Texture2D" uid="uid://pfaspl1fclcm" path="res://ressources/sprite_2.png" id="3_qbo12"]
+[ext_resource type="Texture2D" uid="uid://dl3muurh6w743" path="res://ressources/sprite_3.png" id="4_6gi13"]
+[ext_resource type="Texture2D" uid="uid://bs74fno8jtdrf" path="res://ressources/sprite_4.png" id="5_bfcd2"]
+[ext_resource type="Texture2D" uid="uid://51u36hbobkq0" path="res://ressources/sprite_5.png" id="6_fx0ut"]
+[ext_resource type="Texture2D" uid="uid://cb75mo07j5hl4" path="res://ressources/sprite_6.png" id="7_f6vt1"]
+[ext_resource type="Texture2D" uid="uid://ylh6fpccv4qf" path="res://ressources/sprite_7.png" id="8_p1lk8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7iv8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hv8lg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f6vt1")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_fx0ut")
+}, {
+"duration": 0.3,
+"texture": ExtResource("5_bfcd2")
+}, {
+"duration": 0.4,
+"texture": ExtResource("4_6gi13")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_qbo12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e1apg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p1lk8")
+}],
+"loop": false,
+"name": &"turn_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e1apg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_qbo12")
+}, {
+"duration": 0.4,
+"texture": ExtResource("4_6gi13")
+}, {
+"duration": 0.3,
+"texture": ExtResource("5_bfcd2")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_fx0ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f6vt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p1lk8")
+}],
+"loop": false,
+"name": &"turn_right",
+"speed": 8.0
+}]
+
+[node name="Book" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e1apg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(585, 272)
+scale = Vector2(2.9277344, 2.9277344)
+sprite_frames = SubResource("SpriteFrames_7iv8e")
+animation = &"turn_left"
+
+[node name="retour" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.832
+anchor_top = 0.809
+anchor_right = 0.94000006
+anchor_bottom = 0.91200006
+offset_left = -0.46398926
+offset_top = -0.23199463
+offset_right = 0.11987305
+offset_bottom = 0.023986816
+text = "Retour"
+
+[node name="suivant" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53800005
+anchor_top = 0.753
+anchor_right = 0.666
+anchor_bottom = 0.901
+offset_left = 1.223999
+offset_top = 32.05594
+offset_right = -21.231934
+offset_bottom = 3.1519165
+rotation = -0.2617994
+text = "Suivant"
+
+[node name="pred" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.395
+anchor_top = 0.753
+anchor_right = 0.531
+anchor_bottom = 0.919
+offset_left = 27.95996
+offset_top = -0.9440613
+offset_right = -3.7120361
+offset_bottom = -41.512085
+rotation = 0.2617994
+text = "Précédent"
+
+[connection signal="pressed" from="retour" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="suivant" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="pred" to="." method="_on_button_3_pressed"]
