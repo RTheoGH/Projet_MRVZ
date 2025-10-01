@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqcqxt2uti42d"
-path="res://.godot/imported/um.png-995ea12fd12ebdaec52802c6abdd31cb.ctex"
+uid="uid://pwg0has11ts6"
+path="res://.godot/imported/4.png-6c4b1b698a8919df6f9827dd3f2abba9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ressources/um.png"
-dest_files=["res://.godot/imported/um.png-995ea12fd12ebdaec52802c6abdd31cb.ctex"]
+source_file="res://ressources/crosshairs_specials/4.png"
+dest_files=["res://.godot/imported/4.png-6c4b1b698a8919df6f9827dd3f2abba9.ctex"]
 
 [params]
 
