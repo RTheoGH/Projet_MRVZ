@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjgtvtynklld5"]
+[gd_scene load_steps=17 format=3 uid="uid://bjgtvtynklld5"]
 
 [ext_resource type="Script" uid="uid://dqex76kdn8q6e" path="res://scripts/book.gd" id="1_e1apg"]
 [ext_resource type="Texture2D" uid="uid://b6fdl88ll2tey" path="res://ressources/livre_ouvert.png" id="1_hv8lg"]
@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://51u36hbobkq0" path="res://ressources/sprite_5.png" id="6_fx0ut"]
 [ext_resource type="Texture2D" uid="uid://cb75mo07j5hl4" path="res://ressources/sprite_6.png" id="7_f6vt1"]
 [ext_resource type="Texture2D" uid="uid://ylh6fpccv4qf" path="res://ressources/sprite_7.png" id="8_p1lk8"]
+[ext_resource type="Texture2D" uid="uid://dacg73wq786q5" path="res://ressources/retour1.png" id="10_p1lk8"]
+[ext_resource type="Texture2D" uid="uid://bdp6hre2uk2w" path="res://ressources/retour2.png" id="11_7iv8e"]
+[ext_resource type="Texture2D" uid="uid://b5c6ak4ik724q" path="res://ressources/suivant1.png" id="12_qp1ud"]
+[ext_resource type="Texture2D" uid="uid://db0hlw4yugak0" path="res://ressources/suivant2.png" id="13_u6yg1"]
+[ext_resource type="Texture2D" uid="uid://byxqtqn4i2wqk" path="res://ressources/precedent1.png" id="14_hp3is"]
+[ext_resource type="Texture2D" uid="uid://bawhx1snecap" path="res://ressources/precedent2.png" id="15_7k10a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7iv8e"]
 animations = [{
@@ -82,6 +88,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e1apg")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.15686275)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(585, 272)
@@ -89,46 +104,49 @@ scale = Vector2(2.9277344, 2.9277344)
 sprite_frames = SubResource("SpriteFrames_7iv8e")
 animation = &"turn_left"
 
-[node name="retour" type="Button" parent="."]
+[node name="retour" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.832
-anchor_top = 0.809
-anchor_right = 0.94000006
-anchor_bottom = 0.91200006
-offset_left = -0.46398926
-offset_top = -0.23199463
-offset_right = 0.11987305
-offset_bottom = 0.023986816
-text = "Retour"
+anchor_left = 0.76600003
+anchor_top = 0.81000006
+anchor_right = 0.989
+anchor_bottom = 0.91400003
+offset_left = 0.56799316
+offset_top = 0.11993408
+offset_right = -0.32800293
+offset_bottom = -0.2720337
+texture_normal = ExtResource("10_p1lk8")
+texture_hover = ExtResource("11_7iv8e")
 
-[node name="suivant" type="Button" parent="."]
+[node name="suivant" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.53800005
-anchor_top = 0.753
-anchor_right = 0.666
-anchor_bottom = 0.901
-offset_left = 1.223999
-offset_top = 32.05594
-offset_right = -21.231934
-offset_bottom = 3.1519165
+anchor_top = 0.73200005
+anchor_right = 0.72700006
+anchor_bottom = 0.84300005
+offset_left = -38.776062
+offset_top = 33.66391
+offset_right = -0.50408936
+offset_bottom = 28.7359
 rotation = -0.2617994
-text = "Suivant"
+texture_normal = ExtResource("12_qp1ud")
+texture_hover = ExtResource("13_u6yg1")
 
-[node name="pred" type="Button" parent="."]
+[node name="pred" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.395
-anchor_top = 0.753
+anchor_left = 0.37100002
+anchor_top = 0.725
 anchor_right = 0.531
-anchor_bottom = 0.919
-offset_left = 27.95996
-offset_top = -0.9440613
-offset_right = -3.7120361
-offset_bottom = -41.512085
+anchor_bottom = 0.878
+offset_left = -14.39209
+offset_top = -22.800018
+offset_right = 57.287903
+offset_bottom = -54.94403
 rotation = 0.2617994
-text = "Précédent"
+texture_normal = ExtResource("14_hp3is")
+texture_hover = ExtResource("15_7k10a")
 
 [connection signal="pressed" from="retour" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="suivant" to="." method="_on_button_2_pressed"]

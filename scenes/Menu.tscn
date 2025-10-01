@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dek63gbyfg4ei"]
+[gd_scene load_steps=25 format=3 uid="uid://dek63gbyfg4ei"]
 
 [ext_resource type="Script" uid="uid://clm87qo21c7lo" path="res://scripts/menu.gd" id="1_jmdev"]
 [ext_resource type="Texture2D" uid="uid://b6vk82jruug7b" path="res://ressources/background/bg2.png" id="1_o0tnf"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c0r7g1ktwgxnr" path="res://ressources/options2.png" id="14_dek3k"]
 [ext_resource type="Texture2D" uid="uid://dav1cct0ut0i1" path="res://ressources/menu_quit1.png" id="15_8fhjo"]
 [ext_resource type="Texture2D" uid="uid://bp52dwh2erbvm" path="res://ressources/menu_quit2.png" id="16_760fv"]
+[ext_resource type="PackedScene" uid="uid://c6tftscbtspu3" path="res://scenes/Options.tscn" id="22_dek3k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i7htd"]
 animations = [{
@@ -273,7 +274,11 @@ grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 
+[node name="Options" parent="." instance=ExtResource("22_dek3k")]
+layout_mode = 1
+
 [connection signal="pressed" from="propos" to="." method="_on_propos_pressed"]
 [connection signal="pressed" from="sous_menu/jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="sous_menu/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="sous_menu/quitter" to="." method="_on_quitter_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
