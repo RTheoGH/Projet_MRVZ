@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cru6fthpu72uo"]
+[gd_scene load_steps=11 format=3 uid="uid://cru6fthpu72uo"]
 
-[ext_resource type="Script" path="res://scripts/scene.gd" id="1_w7ipn"]
+[ext_resource type="Script" uid="uid://nvepefibi6jg" path="res://scripts/scene.gd" id="1_w7ipn"]
 [ext_resource type="PackedScene" uid="uid://hyxjxaek1eag" path="res://scenes/Perso.tscn" id="2_20oit"]
 [ext_resource type="PackedScene" uid="uid://dkm1i03s7ql1s" path="res://scenes/Inv_UI.tscn" id="2_w7ipn"]
 [ext_resource type="PackedScene" uid="uid://ccneeglf3rtgq" path="res://scenes/Pause.tscn" id="3_20oit"]
@@ -64,9 +64,6 @@ shape = SubResource("CylinderShape3D_dvpi0")
 shape = SubResource("CylinderShape3D_plqpu")
 
 [node name="InvUi" parent="." instance=ExtResource("2_w7ipn")]
-
-[node name="Pause" parent="." instance=ExtResource("3_20oit")]
-visible = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="."]
 autoplay = true
