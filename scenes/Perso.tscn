@@ -1,27 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://hyxjxaek1eag"]
+[gd_scene load_steps=5 format=3 uid="uid://hyxjxaek1eag"]
 
 [ext_resource type="Script" uid="uid://deysa375pgxig" path="res://scripts/perso.gd" id="1_34im4"]
-[ext_resource type="Texture2D" uid="uid://drit4ftmfbgge" path="res://ressources/crosshair_pickup/1.png" id="2_2db7d"]
-[ext_resource type="Texture2D" uid="uid://c66v2a4lqf86m" path="res://ressources/crosshair_pickup/2.png" id="3_w5smx"]
-[ext_resource type="Texture2D" uid="uid://xtll0ik5qw0h" path="res://ressources/crosshair_pickup/3.png" id="4_lk1ja"]
-[ext_resource type="Texture2D" uid="uid://pwg0has11ts6" path="res://ressources/crosshair_pickup/4.png" id="5_fksxw"]
-[ext_resource type="Texture2D" uid="uid://kwcfjhuu2b75" path="res://ressources/crosshair_pickup/5.png" id="6_t1vo5"]
-[ext_resource type="Texture2D" uid="uid://bf0yothqg6huo" path="res://ressources/crosshair_pickup/6.png" id="7_3pk5k"]
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_bgd0n"]
-frames = 6
-speed_scale = 9.0
-frame_0/texture = ExtResource("2_2db7d")
-frame_1/texture = ExtResource("3_w5smx")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("4_lk1ja")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("5_fksxw")
-frame_3/duration = 1.0
-frame_4/texture = ExtResource("6_t1vo5")
-frame_4/duration = 1.0
-frame_5/texture = ExtResource("7_3pk5k")
-frame_5/duration = 3.0
+[ext_resource type="Texture2D" uid="uid://cy0ohhvb38hg8" path="res://ressources/crosshair.png" id="2_v37cp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e1nwe"]
 
@@ -54,7 +34,7 @@ offset_right = 0.4159546
 offset_bottom = -0.088012695
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AnimatedTexture_bgd0n")
+texture = ExtResource("2_v37cp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_e1nwe")

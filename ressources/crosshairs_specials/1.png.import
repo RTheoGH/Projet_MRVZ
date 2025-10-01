@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm5nf46xf0ods"
-path="res://.godot/imported/cosshair_interact.png-2486af27f4a334da73329830a1d2e19e.ctex"
+uid="uid://drit4ftmfbgge"
+path="res://.godot/imported/1.png-ebf3773916df67b1eae7c6d542951d8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ressources/cosshair_interact.png"
-dest_files=["res://.godot/imported/cosshair_interact.png-2486af27f4a334da73329830a1d2e19e.ctex"]
+source_file="res://ressources/crosshairs_specials/1.png"
+dest_files=["res://.godot/imported/1.png-ebf3773916df67b1eae7c6d542951d8e.ctex"]
 
 [params]
 

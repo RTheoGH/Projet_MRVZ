@@ -27,6 +27,15 @@ func _physics_process(delta: float) -> void:
 	var cam_diff = get_viewport().get_mouse_position() - previous_mouse_pos
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
+	var obj := ray.get_collider()
+	if(is_instance_of(obj, Interactable)):
+		if obj.is_collectible:
+			$Camera3D/Crosshair.texture = load("res://ressources/crosshair_pickup.res")
+		else:
+			$Camera3D/Crosshair.texture = load("res://ressources/crosshair_interact.res")
+	else:
+		$Camera3D/Crosshair.texture = load("res://ressources/crosshair.png")
+	
 	if(Input.is_action_just_pressed("ui_accept")):
 		try_grab()
 	
