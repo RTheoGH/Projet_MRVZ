@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cru6fthpu72uo"]
+[gd_scene load_steps=6 format=3 uid="uid://cru6fthpu72uo"]
 
 [ext_resource type="PackedScene" uid="uid://hyxjxaek1eag" path="res://scenes/Perso.tscn" id="2_20oit"]
+[ext_resource type="PackedScene" uid="uid://dkm1i03s7ql1s" path="res://scenes/Inv_UI.tscn" id="2_w7ipn"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dvpi0"]
 
@@ -32,3 +33,5 @@ shadow_blur = 1.094
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02981, 0.9519453, -4.330148)
 mesh = SubResource("CylinderMesh_dvpi0")
+
+[node name="InvUi" parent="." instance=ExtResource("2_w7ipn")]
