@@ -25,9 +25,7 @@ func open():
 	update_slides()
 	visible = true
 	is_open = true
-	Global.isPaused = true
 	
 func close():
 	visible = false
 	is_open = false
-	Global.isPaused = false
