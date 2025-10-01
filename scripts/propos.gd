@@ -3,7 +3,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Book.hide()
 	pass # Replace with function body.
 
 
@@ -12,15 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_continuer_pressed() -> void:
-	Global.isPaused = false
-	
-
-func _on_quitter_pressed() -> void:
-	Global.isPaused = false
+func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
-
-
-func _on_progress_pressed() -> void:
-	$Book.show()
-	$Book/AnimatedSprite2D.play("default")
