@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkm1i03s7ql1s"]
+
+[ext_resource type="Script" uid="uid://cys43wqmq4edy" path="res://scripts/inv_ui.gd" id="1_o4mch"]
+[ext_resource type="PackedScene" uid="uid://ce2lc7q7loeyr" path="res://scenes/inventory_UI_slot.tscn" id="2_d45fw"]
+
+[node name="InvUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o4mch")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36800003
+anchor_top = 0.411
+anchor_right = 0.632
+anchor_bottom = 0.58900005
+offset_left = -0.43603516
+offset_top = 0.17199707
+offset_right = 0.43597412
+offset_bottom = -0.17202759
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Inventory"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="InventoryUiSlot" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_d45fw")]
+layout_mode = 2
+
+[node name="InventoryUiSlot2" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_d45fw")]
+layout_mode = 2
+
+[node name="InventoryUiSlot3" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_d45fw")]
+layout_mode = 2

@@ -5,6 +5,7 @@ var transition_time := 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Options.hide()
 	$Chargement.hide()
 	$chargement_block.hide()
 	$Backgrounds.play("default")
@@ -74,3 +75,7 @@ func _on_timer_timeout() -> void:
 
 func _on_propos_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/propos.tscn")
+
+
+func _on_options_pressed() -> void:
+	$Options.show()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxgsoqdgjn02y"]
 
-[ext_resource type="Script" uid="uid://dxv0hrv17kc3" path="res://scripts/propos.gd" id="1_ituch"]
+[ext_resource type="Script" path="res://scripts/propos.gd" id="1_ituch"]
 [ext_resource type="Texture2D" uid="uid://bdsiao43sff1v" path="res://ressources/autre/20250924_095133.jpg" id="2_a5e6q"]
 [ext_resource type="Texture2D" uid="uid://kes1ssat32kl" path="res://ressources/autre/20250924_101419.jpg" id="3_awv4a"]
 
