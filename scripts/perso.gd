@@ -10,8 +10,13 @@ var cam_speed = 0.5
 
 func try_grab() -> Node3D:
 	var obj := ray.get_collider()
-	print(obj)
+	if is_instance_of(obj, Interactable):
+		obj.on_interaction()
 	return obj
+	
+func _ready() -> void:
+	$Camera3D/RayCast3D.collide_with_areas = true
+	$Camera3D/RayCast3D.collide_with_bodies = false
 
 func _physics_process(delta: float) -> void:
 	

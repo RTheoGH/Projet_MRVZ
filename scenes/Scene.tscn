@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cru6fthpu72uo"]
+[gd_scene load_steps=10 format=3 uid="uid://cru6fthpu72uo"]
 
-[ext_resource type="Script" uid="uid://nvepefibi6jg" path="res://scripts/scene.gd" id="1_w7ipn"]
+[ext_resource type="Script" path="res://scripts/scene.gd" id="1_w7ipn"]
 [ext_resource type="PackedScene" uid="uid://hyxjxaek1eag" path="res://scenes/Perso.tscn" id="2_20oit"]
-[ext_resource type="PackedScene" uid="uid://ccneeglf3rtgq" path="res://scenes/Pause.tscn" id="3_20oit"]
+[ext_resource type="PackedScene" path="res://scenes/Pause.tscn" id="3_20oit"]
+[ext_resource type="Script" uid="uid://up24dtse8gef" path="res://scripts/classes/interactable.gd" id="4_plqpu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dvpi0"]
 
@@ -11,6 +12,10 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_dvpi0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dvpi0"]
+radius = 0.9394531
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_plqpu"]
+radius = 0.51220703
 
 [node name="Scene" type="Node3D"]
 script = ExtResource("1_w7ipn")
@@ -34,14 +39,26 @@ shadow_enabled = true
 shadow_opacity = 0.89
 shadow_blur = 1.094
 
+[node name="Pause" parent="." instance=ExtResource("3_20oit")]
+visible = false
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02981, 0.9519453, -4.330148)
 mesh = SubResource("CylinderMesh_dvpi0")
 
-[node name="Pause" parent="." instance=ExtResource("3_20oit")]
-visible = false
+[node name="Interactable" type="Area3D" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02981, -0.9519453, 4.330148)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("4_plqpu")
+is_collectible = true
+metadata/_custom_type_script = "uid://up24dtse8gef"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MeshInstance3D2/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02981, 0.9519453, -4.330148)
+shape = SubResource("CylinderShape3D_dvpi0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
-shape = SubResource("CylinderShape3D_dvpi0")
+shape = SubResource("CylinderShape3D_plqpu")
