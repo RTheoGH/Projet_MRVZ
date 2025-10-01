@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cru6fthpu72uo"]
+[gd_scene load_steps=10 format=3 uid="uid://cru6fthpu72uo"]
 
 [ext_resource type="Script" path="res://scripts/scene.gd" id="1_w7ipn"]
 [ext_resource type="PackedScene" uid="uid://hyxjxaek1eag" path="res://scenes/Perso.tscn" id="2_20oit"]
-[ext_resource type="PackedScene" uid="uid://dkm1i03s7ql1s" path="res://scenes/Inv_UI.tscn" id="2_w7ipn"]
+[ext_resource type="PackedScene" uid="uid://ccneeglf3rtgq" path="res://scenes/Pause.tscn" id="3_20oit"]
+[ext_resource type="Script" uid="uid://up24dtse8gef" path="res://scripts/classes/interactable.gd" id="4_plqpu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dvpi0"]
 
@@ -61,5 +62,3 @@ shape = SubResource("CylinderShape3D_dvpi0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
 shape = SubResource("CylinderShape3D_plqpu")
-
-[node name="InvUi" parent="." instance=ExtResource("2_w7ipn")]
