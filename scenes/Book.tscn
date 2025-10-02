@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjgtvtynklld5"]
+[gd_scene load_steps=19 format=3 uid="uid://bjgtvtynklld5"]
 
 [ext_resource type="Script" uid="uid://dqex76kdn8q6e" path="res://scripts/book.gd" id="1_e1apg"]
 [ext_resource type="Texture2D" uid="uid://b6fdl88ll2tey" path="res://ressources/livre_ouvert.png" id="1_hv8lg"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://db0hlw4yugak0" path="res://ressources/suivant2.png" id="13_u6yg1"]
 [ext_resource type="Texture2D" uid="uid://byxqtqn4i2wqk" path="res://ressources/precedent1.png" id="14_hp3is"]
 [ext_resource type="Texture2D" uid="uid://bawhx1snecap" path="res://ressources/precedent2.png" id="15_7k10a"]
+[ext_resource type="AudioStream" uid="uid://cfffq23lwsdc1" path="res://ressources/sounds/close_book.mp3" id="16_7iv8e"]
+[ext_resource type="AudioStream" uid="uid://coslqk6nfjk64" path="res://ressources/sounds/turn_page.mp3" id="16_qp1ud"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7iv8e"]
 animations = [{
@@ -147,6 +149,12 @@ offset_bottom = -54.94403
 rotation = 0.2617994
 texture_normal = ExtResource("14_hp3is")
 texture_hover = ExtResource("15_7k10a")
+
+[node name="turn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_qp1ud")
+
+[node name="close" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_7iv8e")
 
 [connection signal="pressed" from="retour" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="suivant" to="." method="_on_button_2_pressed"]

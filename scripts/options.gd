@@ -10,6 +10,7 @@ var current_button : Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AudioStreamPlayer2D.volume_db = Global.ui_volume
 	$modifier.hide()
 	get_movements_keys()
 	$speed_val.text = str(Global.cam_speed)
@@ -17,8 +18,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$AudioStreamPlayer2D.volume_db = Global.ui_volume
 	set_camera_speed()
 	set_music_volume()
+	set_ui_volume()
 	pass
 	
 func set_camera_speed():
@@ -27,15 +30,17 @@ func set_camera_speed():
 	$speed_val.text = str(Global.cam_speed)
 	
 func set_music_volume():
-	var volume_slider = $HSlider2.value
-	Global.music_volume = value_to_db(volume_slider,0,100,-80,80)
-	$volume_val.text = str(volume_slider)
+	var volume_m_slider = $HSlider2.value
+	Global.music_volume = linear_to_db(volume_m_slider)
+	$volume_val.text = str(volume_m_slider*100)
 	
-func value_to_db(x, xmin, xmax, dbmin, dbmax):
-	return dbmin + ( (x - xmin) * (dbmax - dbmin) ) / (xmax - xmin)
-
+func set_ui_volume():
+	var volume_ui_slider = $HSlider3.value
+	Global.ui_volume = linear_to_db(volume_ui_slider)
+	$volume_val2.text = str(volume_ui_slider*100)
 
 func _on_retour_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	self.hide()
 	
 func get_movements_keys() -> void:
@@ -76,26 +81,31 @@ func _input(event):
 		modif = ""
 
 func _on_button_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	modif = "forward"
 	current_button = $Button
 	$modifier.show()
 
 func _on_button_2_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	modif = "backward"
 	current_button = $Button2
 	$modifier.show()
 
 func _on_button_3_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	modif = "left"
 	current_button = $Button3
 	$modifier.show()
 
 func _on_button_4_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	modif = "right"
 	current_button = $Button4
 	$modifier.show()
 	
 func _on_button_5_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	modif = "jump"
 	current_button = $Button5
 	$modifier.show()

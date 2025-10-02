@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6tftscbtspu3"]
+[gd_scene load_steps=6 format=3 uid="uid://c6tftscbtspu3"]
 
 [ext_resource type="Script" uid="uid://qmp7vkc3d7au" path="res://scripts/options.gd" id="1_nmn1p"]
 [ext_resource type="Texture2D" uid="uid://dacg73wq786q5" path="res://ressources/retour1.png" id="2_pxqj8"]
 [ext_resource type="Texture2D" uid="uid://bdp6hre2uk2w" path="res://ressources/retour2.png" id="3_w238l"]
 [ext_resource type="Texture2D" uid="uid://bor3b4ypy8nee" path="res://ressources/options_1-1.png.png" id="4_pxqj8"]
+[ext_resource type="AudioStream" uid="uid://ciexno7kxtsqw" path="res://ressources/sounds/Bouton.wav" id="5_w238l"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -184,14 +185,14 @@ offset_bottom = 0.16000366
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.47300002
-anchor_top = 0.39400002
-anchor_right = 0.55
-anchor_bottom = 0.483
-offset_left = 0.104003906
-offset_top = -0.31201172
-offset_right = 0.39996338
-offset_bottom = 0.015991211
+anchor_left = 0.46800002
+anchor_top = 0.37
+anchor_right = 0.545
+anchor_bottom = 0.46
+offset_left = -0.13604736
+offset_top = 0.23999023
+offset_right = 0.15997314
+offset_bottom = -0.08001709
 text = "Sensibilité souris"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -199,14 +200,14 @@ vertical_alignment = 1
 [node name="HSlider" type="HSlider" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.564
-anchor_top = 0.39400002
-anchor_right = 0.837
-anchor_bottom = 0.46100003
-offset_left = 0.27197266
-offset_top = -0.31201172
-offset_right = -0.22399902
-offset_bottom = 0.27197266
+anchor_left = 0.559
+anchor_top = 0.37
+anchor_right = 0.832
+anchor_bottom = 0.43800002
+offset_left = 0.031982422
+offset_top = 0.23999023
+offset_right = -0.46398926
+offset_bottom = 0.17599487
 min_value = 1.0
 value = 30.0
 
@@ -217,50 +218,52 @@ anchor_left = 0.66800004
 anchor_top = 0.335
 anchor_right = 0.73300004
 anchor_bottom = 0.38700002
-offset_left = 0.46392822
-offset_top = -0.08000183
-offset_right = -0.41601563
-offset_bottom = 0.22398376
+offset_left = -5.536072
+offset_top = -15.080002
+offset_right = -6.4160156
+offset_bottom = -14.776016
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.47300002
-anchor_top = 0.485
-anchor_right = 0.55200005
-anchor_bottom = 0.57100004
-offset_left = 0.104003906
-offset_top = -0.27999878
-offset_right = 0.095947266
-offset_bottom = -0.008026123
-text = "Volume"
+anchor_left = 0.46800002
+anchor_top = 0.46100003
+anchor_right = 0.54700005
+anchor_bottom = 0.54800004
+offset_left = -0.13604736
+offset_top = 0.27197266
+offset_right = -0.14404297
+offset_bottom = -0.104034424
+text = "Volume musique"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HSlider2" type="HSlider" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.564
-anchor_top = 0.49100003
-anchor_right = 0.837
-anchor_bottom = 0.559
-offset_left = 0.27197266
-offset_top = -0.16802979
-offset_right = -0.22399902
-offset_bottom = -0.23199463
-value = 100.0
+anchor_left = 0.559
+anchor_top = 0.46800002
+anchor_right = 0.832
+anchor_bottom = 0.535
+offset_left = 0.031982422
+offset_top = -0.26400757
+offset_right = -0.46398926
+offset_bottom = 0.3199768
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="volume_val" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.669
-anchor_top = 0.45400003
-anchor_right = 0.734
-anchor_bottom = 0.50600004
-offset_left = 0.31195068
-offset_top = -0.1920166
-offset_right = -0.5680542
-offset_bottom = 0.111968994
+anchor_left = 0.66400003
+anchor_top = 0.43100002
+anchor_right = 0.72800004
+anchor_bottom = 0.483
+offset_left = 0.07196045
+offset_top = -0.2880249
+offset_right = 0.3439331
+offset_bottom = 0.015991211
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -274,6 +277,47 @@ offset_top = 0.17599487
 offset_right = -0.45602417
 offset_bottom = 0.3119812
 text = "Sauter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider3" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.56100005
+anchor_top = 0.55700004
+anchor_right = 0.83300006
+anchor_bottom = 0.625
+offset_left = -0.2720337
+offset_top = 0.063964844
+offset_right = 0.38391113
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="volume_val2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.669
+anchor_top = 0.522
+anchor_right = 0.73200005
+anchor_bottom = 0.574
+offset_left = -1.6880493
+offset_top = -0.25601196
+offset_right = -0.2640381
+offset_bottom = 0.04800415
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47000003
+anchor_top = 0.546
+anchor_right = 0.549
+anchor_bottom = 0.633
+offset_left = -0.44006348
+offset_top = 0.19198608
+offset_right = -0.44799805
+offset_bottom = -0.184021
+text = "Volume menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -310,6 +354,9 @@ theme_override_font_sizes/normal_font_size = 64
 text = "APPUIE SUR LA NOUVELLE TOUCHE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_w238l")
 
 [connection signal="pressed" from="retour" to="." method="_on_retour_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

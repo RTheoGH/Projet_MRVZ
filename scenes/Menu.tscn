@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dek63gbyfg4ei"]
+[gd_scene load_steps=26 format=3 uid="uid://dek63gbyfg4ei"]
 
 [ext_resource type="Script" uid="uid://clm87qo21c7lo" path="res://scripts/menu.gd" id="1_jmdev"]
 [ext_resource type="Texture2D" uid="uid://b6vk82jruug7b" path="res://ressources/background/bg2.png" id="1_o0tnf"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dav1cct0ut0i1" path="res://ressources/menu_quit1.png" id="15_8fhjo"]
 [ext_resource type="Texture2D" uid="uid://bp52dwh2erbvm" path="res://ressources/menu_quit2.png" id="16_760fv"]
 [ext_resource type="PackedScene" uid="uid://c6tftscbtspu3" path="res://scenes/Options.tscn" id="22_dek3k"]
+[ext_resource type="AudioStream" uid="uid://ciexno7kxtsqw" path="res://ressources/sounds/Bouton.wav" id="24_760fv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i7htd"]
 animations = [{
@@ -146,12 +147,13 @@ color = Color(0, 0, 0, 0.18039216)
 [node name="jouer" type="TextureButton" parent="sous_menu"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -128.0
-offset_right = 128.0
-offset_bottom = 64.0
+anchors_preset = -1
+anchor_left = 0.075
+anchor_right = 0.9250001
+anchor_bottom = 0.314
+offset_left = -0.07500076
+offset_right = 0.07498169
+offset_bottom = -0.055999756
 grow_horizontal = 2
 texture_normal = ExtResource("11_7t7qg")
 texture_hover = ExtResource("12_l3wcu")
@@ -159,15 +161,15 @@ texture_hover = ExtResource("12_l3wcu")
 [node name="options" type="TextureButton" parent="sous_menu"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -32.0
-offset_right = 128.0
-offset_bottom = 32.0
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.34300002
+anchor_right = 0.9250001
+anchor_bottom = 0.657
+offset_left = -0.07500076
+offset_top = 0.027992249
+offset_right = 0.07498169
+offset_bottom = -0.027999878
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("13_i7htd")
@@ -176,14 +178,14 @@ texture_hover = ExtResource("14_dek3k")
 [node name="quitter" type="TextureButton" parent="sous_menu"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.68600005
+anchor_right = 0.9250001
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -64.0
-offset_right = 128.0
+offset_left = -0.07500076
+offset_top = 0.055984497
+offset_right = 0.07498169
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("15_8fhjo")
@@ -275,7 +277,12 @@ grow_vertical = 2
 bbcode_enabled = true
 
 [node name="Options" parent="." instance=ExtResource("22_dek3k")]
+visible = false
+z_index = 5
 layout_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_760fv")
 
 [connection signal="pressed" from="propos" to="." method="_on_propos_pressed"]
 [connection signal="pressed" from="sous_menu/jouer" to="." method="_on_jouer_pressed"]
