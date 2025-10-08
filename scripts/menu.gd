@@ -12,6 +12,8 @@ func _ready() -> void:
 		#$fond.texture = load("res://ressources/background/"+backgrounds[current_frame+1])
 	#else:
 		#$fond.texture = load("res://ressources/background/"+backgrounds[0])
+	$AudioStreamPlayer2D.volume_db = Global.ui_volume
+	$Options.hide()
 	$Chargement.hide()
 	$chargement_block.hide()
 	$Backgrounds.play("default")
@@ -45,10 +47,12 @@ func transition() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$AudioStreamPlayer2D.volume_db = Global.ui_volume
 	$Chargement.play("default")
 	pass
 
 func _on_quitter_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	get_tree().quit()
 
 var cpt = 0
@@ -65,6 +69,7 @@ func launch_hide() -> void:
 	$propos.hide()
 
 func _on_jouer_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	$Chargement.show()
 	$chargement_block.show()
 	launch_hide()
@@ -84,4 +89,10 @@ func _on_timer_timeout() -> void:
 
 
 func _on_propos_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	get_tree().change_scene_to_file("res://scenes/propos.tscn")
+
+
+func _on_options_pressed() -> void:
+	$AudioStreamPlayer2D.play()
+	$Options.show()

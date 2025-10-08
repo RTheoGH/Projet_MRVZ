@@ -1,6 +1,6 @@
 extends Control
 
-@onready var inventory : Inventory = preload("res://inventory/player_inventory.tres")
+
 @onready var slots : Array = $PanelContainer/MarginContainer/HBoxContainer.get_children()
 
 var is_open = false
@@ -18,14 +18,16 @@ func _process(delta):
 
 func update_slides():
 	print(slots[0])
-	for i in range(min(inventory.items.size(),slots.size())):
-		slots[i].update_inventory_visual(inventory.items[i])
+	for i in range(min(Global.player_inventory.items.size(),slots.size())):
+		slots[i].update_inventory_visual(Global.player_inventory.items[i])
 
 func open():
 	update_slides()
 	visible = true
 	is_open = true
+	Global.is_inventory_open = true
 	
 func close():
 	visible = false
 	is_open = false
+	Global.is_inventory_open = false
