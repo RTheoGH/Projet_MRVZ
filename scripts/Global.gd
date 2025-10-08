@@ -5,6 +5,9 @@ var cam_speed = 0.3
 var music_volume = 100
 var ui_volume = 100
 
+var minimap_activated: bool = false
+var carre_minimap: bool = false
+
 func _ready() -> void:
 	isPaused = false
 

@@ -11,12 +11,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.isPaused:
-		self.hide()
-	else:
-		self.show()
 	if !player:
 		return
+		
+	if(Global.carre_minimap):
+		$contour.texture = load("res://ressources/ui/cadre2.png")
+		$masque.texture = load("res://ressources/ui/cadre.png")
+	else:
+		$contour.texture = load("res://ressources/ui/cercle2.png")
+		$masque.texture = load("res://ressources/ui/cercle.png")
 	
 	var la_camera_du_player = player.get_node("Camera3D")
 	container.position = -Vector2(player.global_position.x,player.global_position.y)*100
