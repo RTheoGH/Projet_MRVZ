@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dek63gbyfg4ei"]
+[gd_scene load_steps=25 format=3 uid="uid://dek63gbyfg4ei"]
 
 [ext_resource type="Script" uid="uid://clm87qo21c7lo" path="res://scripts/menu.gd" id="1_jmdev"]
 [ext_resource type="Texture2D" uid="uid://b6vk82jruug7b" path="res://ressources/background/bg2.png" id="1_o0tnf"]
@@ -57,6 +57,12 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dek3k"]
+shader = ExtResource("2_i7htd")
+shader_parameter/rect_tex = ExtResource("1_o0tnf")
+shader_parameter/progression = -0.001
+shader_parameter/gradient_order = ExtResource("3_dek3k")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i7htd"]
 shader = ExtResource("2_i7htd")
 shader_parameter/progression = 0.0
@@ -73,13 +79,27 @@ grow_vertical = 2
 script = ExtResource("1_jmdev")
 
 [node name="Backgrounds" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(576.00006, 324.00003)
 scale = Vector2(2.2500002, 2.6666667)
 sprite_frames = SubResource("SpriteFrames_i7htd")
 
+[node name="BackgroundTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="fond2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_2af52")
+
 [node name="fond" type="TextureRect" parent="."]
-visible = false
 texture_filter = 1
+material = SubResource("ShaderMaterial_dek3k")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,6 +119,7 @@ grow_vertical = 2
 color = Color(1, 1, 0.67058825, 0.9019608)
 
 [node name="spirale" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_i7htd")
 layout_mode = 1
 anchors_preset = 15
